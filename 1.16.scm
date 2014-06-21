@@ -1,0 +1,6 @@
+(define (myfast-expt b n)
+  (myfast-expt-iter b n 1))
+(define (myfast-expt-iter b n a)
+  (cond ((= n 0) a)
+        ((even? n) (myfast-expt-iter (* b b) (/ n 2) a))
+        (else  (myfast-expt-iter b (- n 1) (* b a)))))
