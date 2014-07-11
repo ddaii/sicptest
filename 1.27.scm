@@ -1,0 +1,17 @@
+(define (square n)
+  (* n n))
+(define (expmod base exp m)
+  (cond ((= exp 0) 1)
+        ((even? exp)
+         (remainder (square (expmod base (/ exp 2) m))
+                    m))
+        (else
+          (remainder (* base (expmod base (- exp 1) m))
+                     m))))
+
+(define (check-carmichael n)
+  (define (check-carmichael-iter n t)
+    (cond ((= t 1) #t)
+          ((= (expmod t n n) t) (check-carmichael-iter n (- t 1)))
+          (else #f)))
+  (check-carmichael-iter n (- n 1)))
