@@ -4,7 +4,7 @@
     (if (> a b)
       result
       (iter (next a) (+ result (term a)))))
-  (iter a (term a)))
+  (iter a 1))
 
 
 (define (integral f a b dx)
