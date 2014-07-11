@@ -7,7 +7,7 @@
 
 (define (product-b term a next b)
   (if (> a b)
-    0
+    1
     (* (term a)
        (product-b term (next a) next b))))
 
